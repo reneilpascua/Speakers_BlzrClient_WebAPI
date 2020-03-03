@@ -1,0 +1,62 @@
+@page "/speakers"
+@inject HttpClient httpClient
+
+<h1>Speakers</h1>
+
+<p>Here are all the speakers.</p>
+
+@{<a class="btn btn-primary btn-sm" href="/addspeaker">Add Speaker</a>
+    if (speakers == null) {
+
+<p><em>Loading...</em></p>
+} else {
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+        <th>Mobile Number</th>
+      <th>Specialization</th>
+      <th>City</th>
+        <th>Province</th>
+      <th>Employer</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in speakers) {
+    <tr>
+        <td>@item.FirstName</td>
+        <td>@item.LastName</td>
+        <td>@item.Email</td>
+        <td>@item.MobileNumber</td>
+        <td>@item.Specialization</td>
+        <td>@item.City</td>
+        <td>@item.Province</td>
+        <td>@item.Employer</td>
+        <td>
+          <a class="btn btn-success btn-sm" href="/editspeaker/@item.SpeakerId">Edit</a>
+        <a class="btn btn-danger btn-sm" href="/deletespeaker/@item.SpeakerId">Delete</a>
+        </td>
+    </tr>
+    }
+  </tbody>
+</table>
+}
+}
+
+@code {
+    Speaker[] speakers;
+    string baseUrl = "https://localhost:6001/";
+
+
+    protected override async Task OnInitializedAsync() {
+        await load();
+    }
+
+    protected async Task load() {
+        speakers = await httpClient.GetJsonAsync<Speaker[]>($"{baseUrl}api/speakers");
+    }
+
+}

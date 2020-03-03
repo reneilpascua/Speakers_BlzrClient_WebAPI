@@ -1,0 +1,39 @@
+@page "/deletespeaker/{id}"
+@inject HttpClient httpClient
+@inject NavigationManager nm
+
+<h2>Are you sure you want to delete?? <br/>Speaker ID @ID</h2>
+@if (speaker==null) {
+    <p><em>Loading Speaker Info...</em></p>
+} else {
+    <p>@speaker.FirstName  @speaker.LastName</p>
+    <p>@speaker.Email</p>
+    <p>@speaker.MobileNumber</p>
+    <p>@speaker.Specialization</p>
+    <p>@speaker.City</p>
+    <p>@speaker.Province</p>
+    <p>@speaker.Employer</p>
+    <a class="btn btn-primary btn-sm" href="/speakers">Back To Speakers</a>
+    <a class="btn btn-danger btn-sm" @onclick="@(() => HandleDelete())">Delete</a>
+}
+
+@code {
+    [Parameter]
+    public string ID {get; set;} 
+
+    string baseUrl = "https://localhost:6001/";
+    private Speaker speaker;
+
+    protected override async Task OnInitializedAsync() {
+        await load(ID);
+    }
+    public async Task load(string id) {
+        speaker = await httpClient.GetJsonAsync<Speaker>($"{baseUrl}api/speakers/{id}");
+    }
+    
+    protected async Task HandleDelete() {
+      string endpoint = $"{baseUrl}api/speakers/{speaker.SpeakerId}";
+      await httpClient.SendJsonAsync(HttpMethod.Delete, endpoint, null);
+      nm.NavigateTo("speakers");
+    }
+}

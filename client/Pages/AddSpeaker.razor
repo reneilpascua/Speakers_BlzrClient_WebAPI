@@ -1,0 +1,50 @@
+@page "/addspeaker"
+@inject HttpClient httpClient
+@inject NavigationManager nm
+
+<h1>Add A Speaker</h1>
+
+  @{<EditForm Model="@speaker" OnValidSubmit="@HandleAdd">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText placeholder="First Name" id="firstName" @bind-Value="@speaker.FirstName" class="form-control" />
+    <br />
+    <InputText placeholder="Last Name" id="lastName" @bind-Value="@speaker.LastName" class="form-control"/>
+    <br />
+    <InputText placeholder="Email" id="email" @bind-Value="@speaker.Email" class="form-control"/>
+    <br />
+    <InputText placeholder="Mobile Number" id="mobileNumber" @bind-Value="@speaker.MobileNumber" class="form-control"/>
+    <br />
+    <InputText placeholder="Specialization" id="specialization" @bind-Value="@speaker.Specialization" class="form-control"/>
+    <br />
+    <InputText placeholder="City" id="city" @bind-Value="@speaker.City" class="form-control"/>
+    <br />
+    <InputText placeholder="Province" id="province" @bind-Value="@speaker.Province" class="form-control"/>
+    <br />
+    <InputText placeholder="Employer" id="employer" @bind-Value="@speaker.Employer" class="form-control"/>
+    <br />
+    <a href="/speakers"><button class="btn btn-primary btn-sm">Back To Speakers</button></a>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </EditForm>
+  }
+
+@code {
+    string baseUrl = "https://localhost:6001/";
+    private Speaker speaker = new Speaker();
+
+    private async Task HandleAdd() {
+        string endpoint = $"{baseUrl}api/speakers";
+
+        speaker.SpeakerId = Guid.NewGuid().ToString();
+
+        await httpClient.SendJsonAsync(HttpMethod.Post, endpoint, speaker);
+
+        // to do: clear model only if valid submit
+        // alternative: go to view all speakers page
+
+        // clears the form if you want to stay here... might navigate to all speakers instead
+        @* speaker=new Speaker(); *@
+        nm.NavigateTo("speakers");
+    }
+}
