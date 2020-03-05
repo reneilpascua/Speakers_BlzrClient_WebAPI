@@ -1,0 +1,37 @@
+version: '3'
+
+volumes:
+  datafiles:
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
+    volumes:
+      - datafiles:/var/lib/mssql
+    #restart: always
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: SqlExpress!
+
+  api:
+    build:
+      context: ./api
+      dockerfile: ./api/Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "6000:80"
+      - "6001:443"
+
+  client:
+     build:
+      context: ./client
+      dockerfile: ./client/Dockerfile
+    depends_on:
+      - db
+      - api
+    ports:
+      - "8888:80"
+      - "8889:443"
