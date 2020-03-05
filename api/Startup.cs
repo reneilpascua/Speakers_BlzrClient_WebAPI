@@ -29,8 +29,16 @@ namespace api
         {
             services.AddControllers();
 
+            var ctr_connection = @"Server=db;Database=Speakers;User=sa;Password=SqlExpress!;";
+
             services.AddDbContext<SpeakerDbContext>(
-            option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            option => option.UseSqlServer(
+                // use this for localhost
+                // Configuration.GetConnectionString("DefaultConnection")
+                
+                // use this for container
+                ctr_connection
+                ));
 
             services.AddCors(o => o.AddPolicy("Policy", builder =>
             {
@@ -50,7 +58,10 @@ namespace api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // comment out for building Docker
+            // uncomment for localhost
+
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 

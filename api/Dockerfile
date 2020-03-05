@@ -1,21 +1,20 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
 WORKDIR /app
+EXPOSE 5000
+ENV ASPNETCORE_URLS=http://*:5000
 
-# Copy csproj and restore as distinct layers
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+WORKDIR /src
 COPY *.csproj ./
-RUN dotnet restore
+RUN dotnet restore api.csproj
+COPY . .
+WORKDIR /src/.
+RUN dotnet build api.csproj -c Release -o /app/build
 
-# Copy everything else and build
-COPY . ./
-RUN dotnet publish -c Release -o out
+FROM build AS publish
+RUN dotnet publish api.csproj -c Release -o /app/publish
 
-# Build runtime image
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+FROM base AS final
 WORKDIR /app
-COPY --from=build-env /app/out .
-
-EXPOSE 80
-EXPOSE 443
-ENV ASPNETCORE_URLS=http://*:6001;https:*//6000
-
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "api.dll"]
