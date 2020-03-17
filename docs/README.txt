@@ -1,7 +1,8 @@
 COMP4870 ASSIGNMENT 2
 ---------------------
+Authors:
 Reneil Pascua   A01047816   reneilpascuatm@gmail.com
-John Ham
+John Ham        A01041999   jham5@gmail.com
 
 We believe we've completed 100% of the requirements for this assignment.
 
@@ -21,8 +22,9 @@ TESTING INSTRUCTIONS
 3.5) in another command line window, use "docker ps" to see if all 3 services are running (api, db, client)
 3.75) likely the api exited because the db took too long to start. use "docker start <api container name>" to revive it.
 4) on a browser, enter localhost:8888 to be taken to the application
-5) experiment with CRUD operations with the intuitive UI
-6) check validation for each field, specifically the email address and phone number
+5) click View All Speakers to see the speakers and CRUD buttons
+6) experiment with CRUD operations with the intuitive UI
+7) check validation for each field, specifically the email address and phone number
 
 Again, if there are any unresolved issues, please reach out to the authors.
 
