@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
 COPY client.csproj .
-RUN dotnet restore "client.csproj"
+# RUN dotnet restore "client.csproj"
 COPY . .
 RUN dotnet build "client.csproj" -c Release -o /app/build
 
