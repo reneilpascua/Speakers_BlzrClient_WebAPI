@@ -58,14 +58,14 @@
       },
       {
         "Kind": "Components.Component",
-        "Name": "client.Pages.Index",
+        "Name": "client.Pages.AddSpeaker",
         "AssemblyName": "client",
         "Documentation": null,
         "TagOutputHint": null,
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Index",
+            "TagName": "AddSpeaker",
             "ParentTag": null,
             "TagStructure": 0,
             "Attributes": [],
@@ -77,19 +77,19 @@
         "Diagnostics": [],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "client.Pages.Index"
+          "Common.TypeName": "client.Pages.AddSpeaker"
         }
       },
       {
         "Kind": "Components.Component",
-        "Name": "client.Pages.Index",
+        "Name": "client.Pages.AddSpeaker",
         "AssemblyName": "client",
         "Documentation": null,
         "TagOutputHint": null,
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "client.Pages.Index",
+            "TagName": "client.Pages.AddSpeaker",
             "ParentTag": null,
             "TagStructure": 0,
             "Attributes": [],
@@ -101,56 +101,7 @@
         "Diagnostics": [],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "client.Pages.Index",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "Kind": "Components.Component",
-        "Name": "client.Pages.Speakers",
-        "AssemblyName": "client",
-        "Documentation": null,
-        "TagOutputHint": null,
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Speakers",
-            "ParentTag": null,
-            "TagStructure": 0,
-            "Attributes": [],
-            "Diagnostics": []
-          }
-        ],
-        "BoundAttributes": [],
-        "AllowedChildTags": [],
-        "Diagnostics": [],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "client.Pages.Speakers"
-        }
-      },
-      {
-        "Kind": "Components.Component",
-        "Name": "client.Pages.Speakers",
-        "AssemblyName": "client",
-        "Documentation": null,
-        "TagOutputHint": null,
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "client.Pages.Speakers",
-            "ParentTag": null,
-            "TagStructure": 0,
-            "Attributes": [],
-            "Diagnostics": []
-          }
-        ],
-        "BoundAttributes": [],
-        "AllowedChildTags": [],
-        "Diagnostics": [],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "client.Pages.Speakers",
+          "Common.TypeName": "client.Pages.AddSpeaker",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -314,14 +265,14 @@
       },
       {
         "Kind": "Components.Component",
-        "Name": "client.Pages.AddSpeaker",
+        "Name": "client.Pages.Index",
         "AssemblyName": "client",
         "Documentation": null,
         "TagOutputHint": null,
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "AddSpeaker",
+            "TagName": "Index",
             "ParentTag": null,
             "TagStructure": 0,
             "Attributes": [],
@@ -333,19 +284,19 @@
         "Diagnostics": [],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "client.Pages.AddSpeaker"
+          "Common.TypeName": "client.Pages.Index"
         }
       },
       {
         "Kind": "Components.Component",
-        "Name": "client.Pages.AddSpeaker",
+        "Name": "client.Pages.Index",
         "AssemblyName": "client",
         "Documentation": null,
         "TagOutputHint": null,
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "client.Pages.AddSpeaker",
+            "TagName": "client.Pages.Index",
             "ParentTag": null,
             "TagStructure": 0,
             "Attributes": [],
@@ -357,7 +308,56 @@
         "Diagnostics": [],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "client.Pages.AddSpeaker",
+          "Common.TypeName": "client.Pages.Index",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "client.Pages.Speakers",
+        "AssemblyName": "client",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Speakers",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "client.Pages.Speakers"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "client.Pages.Speakers",
+        "AssemblyName": "client",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "client.Pages.Speakers",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "client.Pages.Speakers",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -1144,7 +1144,8 @@
             "Documentation": "Specifies the parameter name for all child content expressions.",
             "Diagnostics": [],
             "Metadata": {
-              "Components.ChildContentParameterName": "True"
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
             },
             "BoundAttributeParameters": []
           }
@@ -1241,7 +1242,8 @@
             "Documentation": "Specifies the parameter name for all child content expressions.",
             "Diagnostics": [],
             "Metadata": {
-              "Components.ChildContentParameterName": "True"
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
             },
             "BoundAttributeParameters": []
           }
@@ -1332,7 +1334,8 @@
             "Documentation": "Specifies the parameter name for the 'Found' child content expression.",
             "Diagnostics": [],
             "Metadata": {
-              "Components.ChildContentParameterName": "True"
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
             },
             "BoundAttributeParameters": []
           }
@@ -1372,7 +1375,8 @@
             "Documentation": "Specifies the parameter name for the 'Found' child content expression.",
             "Diagnostics": [],
             "Metadata": {
-              "Components.ChildContentParameterName": "True"
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
             },
             "BoundAttributeParameters": []
           }
@@ -1564,7 +1568,8 @@
             "Documentation": "Specifies the parameter name for all child content expressions.",
             "Diagnostics": [],
             "Metadata": {
-              "Components.ChildContentParameterName": "True"
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
             },
             "BoundAttributeParameters": []
           }
@@ -1705,7 +1710,8 @@
             "Documentation": "Specifies the parameter name for all child content expressions.",
             "Diagnostics": [],
             "Metadata": {
-              "Components.ChildContentParameterName": "True"
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
             },
             "BoundAttributeParameters": []
           }
@@ -1745,7 +1751,8 @@
             "Documentation": "Specifies the parameter name for the 'ChildContent' child content expression.",
             "Diagnostics": [],
             "Metadata": {
-              "Components.ChildContentParameterName": "True"
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
             },
             "BoundAttributeParameters": []
           }
@@ -1785,7 +1792,8 @@
             "Documentation": "Specifies the parameter name for the 'ChildContent' child content expression.",
             "Diagnostics": [],
             "Metadata": {
-              "Components.ChildContentParameterName": "True"
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
             },
             "BoundAttributeParameters": []
           }
@@ -16586,22 +16594,22 @@
   "Documents": [
     {
       "FilePath": "/Users/reneilpascua/Work/medhat/assn2/client/Pages/DeleteSpeaker.razor",
-      "TargetPath": "Pages/DeleteSpeaker.razor",
+      "TargetPath": "Pages\\DeleteSpeaker.razor",
       "FileKind": "component"
     },
     {
       "FilePath": "/Users/reneilpascua/Work/medhat/assn2/client/Shared/NavMenu.razor",
-      "TargetPath": "Shared/NavMenu.razor",
+      "TargetPath": "Shared\\NavMenu.razor",
       "FileKind": "component"
     },
     {
       "FilePath": "/Users/reneilpascua/Work/medhat/assn2/client/Shared/MainLayout.razor",
-      "TargetPath": "Shared/MainLayout.razor",
+      "TargetPath": "Shared\\MainLayout.razor",
       "FileKind": "component"
     },
     {
       "FilePath": "/Users/reneilpascua/Work/medhat/assn2/client/Pages/Speakers.razor",
-      "TargetPath": "Pages/Speakers.razor",
+      "TargetPath": "Pages\\Speakers.razor",
       "FileKind": "component"
     },
     {
@@ -16611,12 +16619,12 @@
     },
     {
       "FilePath": "/Users/reneilpascua/Work/medhat/assn2/client/Pages/AddSpeaker.razor",
-      "TargetPath": "Pages/AddSpeaker.razor",
+      "TargetPath": "Pages\\AddSpeaker.razor",
       "FileKind": "component"
     },
     {
       "FilePath": "/Users/reneilpascua/Work/medhat/assn2/client/Pages/Index.razor",
-      "TargetPath": "Pages/Index.razor",
+      "TargetPath": "Pages\\Index.razor",
       "FileKind": "component"
     },
     {
@@ -16626,7 +16634,7 @@
     },
     {
       "FilePath": "/Users/reneilpascua/Work/medhat/assn2/client/Pages/EditSpeaker.razor",
-      "TargetPath": "Pages/EditSpeaker.razor",
+      "TargetPath": "Pages\\EditSpeaker.razor",
       "FileKind": "component"
     }
   ],
